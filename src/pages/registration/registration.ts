@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
 
 /**
  * Generated class for the RegistrationPage page.
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _user: UserProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
   }
 
+  register() {
+    this._user.register()
+    .subscribe(
+     (res: any) => { console.log(res);
+      window.sessionStorage.setItem('token', res.token);
+      window.sessionStorage.setItem('userId', res.userId); 
+      // this._user.userToken = window.sessionStorage.getItem('token');
+      // this._user.userId = window.sessionStorage.getItem('userId');
+     },
+     (error) => console.log(error)
+      )
+  }
 }

@@ -4,11 +4,11 @@
     <p>Create Your Account!</p>
     <br>
 
-    <input> <br>
-    <input> <br>
-    <input> <br>
-    <input> <br>
-    <button>Register</button>
+    <input [(ngModel)] = "_user.user.firstName"> <br>
+    <input [(ngModel)] = "_user.user.lastName"> <br>
+    <input [(ngModel)] = "_user.user.email"> <br> 
+    <input [(ngModel)] = "_user.user.password"> <br> 
+    <button (click) = "register()">Register</button>
     <a>I have an account!</a>
 
 </ion-content>
