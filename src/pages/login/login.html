@@ -6,9 +6,9 @@
     <ion-title> Snapz </ion-title>
     <ion-icon name="camera"></ion-icon> <br>
 
-    <input> <br>
-    <input> <br>
-    <button>Login</button>
+    <input [(ngModel)] = "_user.credentials.email"> <br> {{_user.credentials.email}}
+    <input [(ngModel)] = "_user.credentials.password"> <br> {{_user.credentials.password}}
+    <button (click) = "login()">Login</button>
     <a>Forgot Password?</a>
     <a>No Account?</a>
 

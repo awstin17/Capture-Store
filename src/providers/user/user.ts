@@ -18,6 +18,11 @@ export class UserProvider {
     password: ''
   }
 
+  credentials: any = {
+    email: '',
+    password: ''
+  }
+
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
@@ -26,4 +31,7 @@ export class UserProvider {
     return this.http.post("http://localhost:3000/api/appUsers", this.user)
   }
 
+  login() {
+    return this.http.post("http://localhost:3000/api/appUsers/login", this.credentials);
+  }
 }
