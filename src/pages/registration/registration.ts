@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
+import { LoginPage } from '../login/login';
+
 /**
  * Generated class for the RegistrationPage page.
  *
@@ -29,6 +31,7 @@ export class RegistrationPage {
      (res: any) => { console.log(res);
       window.sessionStorage.setItem('token', res.token);
       window.sessionStorage.setItem('userId', res.userId); 
+      this.navCtrl.setRoot(LoginPage);
       // this._user.userToken = window.sessionStorage.getItem('token');
       // this._user.userId = window.sessionStorage.getItem('userId');
      },

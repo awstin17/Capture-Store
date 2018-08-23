@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { UserProvider } from  '../../providers/user/user';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the LoginPage page.
@@ -33,6 +34,7 @@ export class LoginPage {
         window.sessionStorage.setItem('userId', response.userId);
         // this._userservice.userToken = window.sessionStorage.getItem('token');
         // this._userservice.userId = window.sessionStorage.getItem('userId');
+        this.navCtrl.setRoot(TabsPage);
       },
       (error) => alert("invalid credentials, booooo")
       

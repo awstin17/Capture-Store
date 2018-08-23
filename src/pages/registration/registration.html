@@ -1,14 +1,59 @@
-<ion-content padding>
+<ion-content>
+    <ion-grid no-padding text-center>
+        <ion-row>
+            <ion-col>
+                <h1 padding-bottom style="border-bottom: 1px solid black"> Snapz </h1>
+                <h2>Create Your Account!</h2>
+                <br>
+            </ion-col>
+        </ion-row>
+    
+<br><br><br>
 
-    <ion-title> Snapz </ion-title>
-    <p>Create Your Account!</p>
-    <br>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <ion-input text-center [(ngModel)] = "_user.user.firstName" placeholder="First Name"></ion-input> <br>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <ion-input text-center [(ngModel)] = "_user.user.lastName" placeholder="Last Name"></ion-input><br>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <ion-input text-center [(ngModel)] = "_user.user.email" placeholder="email"></ion-input> <br> 
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                    <ion-input text-center [(ngModel)] = "_user.user.password" placeholder="password"></ion-input> <br> 
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
 
-    <input [(ngModel)] = "_user.user.firstName"> <br>
-    <input [(ngModel)] = "_user.user.lastName"> <br>
-    <input [(ngModel)] = "_user.user.email"> <br> 
-    <input [(ngModel)] = "_user.user.password"> <br> 
-    <button (click) = "register()">Register</button>
-    <a>I have an account!</a>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <button block ion-button (click) = "register()">Register</button>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+
+        <br>
+
+        <ion-row>
+            <ion-col>
+                    <a>I have an account!</a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>

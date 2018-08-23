@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -29,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false, 
+        autoFocusAssist: false
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
+    Keyboard,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider
   ]
