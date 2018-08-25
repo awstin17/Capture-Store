@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImageProvider } from '../../providers/image/image';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { Storage } from '@ionic/storage';
 
 
 /**
@@ -18,7 +19,7 @@ export class CameraComponent {
 
   text: string;
 
-  constructor(private camera: Camera, private _image: ImageProvider, private sanitizer: DomSanitizer) {
+  constructor(private camera: Camera, private _image: ImageProvider, private sanitizer: DomSanitizer, private storage: Storage) {
     console.log('Hello CameraComponent Component');
     this.text = 'Hello World';
   }
@@ -41,8 +42,10 @@ export class CameraComponent {
         document.getElementById("icon").style.fontSize = "60px";
         document.getElementById("icon").style.left = "43%";
         this._image.image = 'data:image/jpeg;base64,' + imageData
+        this.storage.set('1', this._image.image);
+        this.storage.get('1').then((res) => console.log(res))
         // this._image.photoURL();
-        console.log(this._image.photoURL())
+        console.log(this._image.image)
        }, (err) => {
         document.getElementById("icon").style.color = "black"
         document.getElementById("icon").style.fontSize = "60px";

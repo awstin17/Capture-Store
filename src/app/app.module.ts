@@ -24,6 +24,7 @@ import { ImageProvider } from '../providers/image/image';
 import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FilePath } from '@ionic-native/file-path';
   imports: [
     BrowserModule,
     HttpClientModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       scrollAssist: false, 
         autoFocusAssist: false
