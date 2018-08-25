@@ -12,6 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import {LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
 
+import { CameraComponent } from '../components/camera/camera';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
@@ -26,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     TabsPage,
     LoginPage,
-    RegistrationPage
+    RegistrationPage,
+    CameraComponent
   ],
   imports: [
     BrowserModule,

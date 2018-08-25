@@ -13,7 +13,7 @@ import { Keyboard } from '@ionic-native/keyboard';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = RegistrationPage;
+  rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private keyboard: Keyboard) {
     platform.ready().then(() => {

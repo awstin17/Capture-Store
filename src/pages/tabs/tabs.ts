@@ -4,6 +4,8 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 
+import { CameraComponent } from '../../components/camera/camera';
+
 @Component({
   templateUrl: 'tabs.html'
 })
