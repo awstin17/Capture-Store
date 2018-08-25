@@ -19,6 +19,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ImageProvider } from '../providers/image/image';
+
+import { File } from '@ionic-native/file';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,11 @@ import { HttpClientModule } from '@angular/common/http';
     Keyboard,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    ImageProvider,
+    File,
+    FileTransfer,
+    FilePath
   ]
 })
 export class AppModule {}

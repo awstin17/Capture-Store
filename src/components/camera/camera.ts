@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { ImageProvider } from '../../providers/image/image';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 
 /**
@@ -16,7 +18,7 @@ export class CameraComponent {
 
   text: string;
 
-  constructor(private camera: Camera) {
+  constructor(private camera: Camera, private _image: ImageProvider, private sanitizer: DomSanitizer) {
     console.log('Hello CameraComponent Component');
     this.text = 'Hello World';
   }
@@ -29,7 +31,6 @@ export class CameraComponent {
   }
 
     onClick() {
-      console.log("wahoooooo");
       document.getElementById("icon").style.color = "#488aff"
       document.getElementById("icon").style.fontSize = "65px";
       document.getElementById("icon").style.left = "42.3%";
@@ -39,7 +40,9 @@ export class CameraComponent {
         document.getElementById("icon").style.color = "black"
         document.getElementById("icon").style.fontSize = "60px";
         document.getElementById("icon").style.left = "43%";
-        let base64Image = 'data:image/jpeg;base64,' + imageData;
+        this._image.image = 'data:image/jpeg;base64,' + imageData
+        // this._image.photoURL();
+        console.log(this._image.photoURL())
        }, (err) => {
         document.getElementById("icon").style.color = "black"
         document.getElementById("icon").style.fontSize = "60px";
