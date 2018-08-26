@@ -13,8 +13,9 @@ export class ImageProvider {
 
   id: any = '';
   token: any = '';
+  show: any;
 
-  constructor(public http: HttpClient, private sanitizer: DomSanitizer) {
+  constructor(public http: HttpClient, public sanitizer: DomSanitizer) {
     console.log('Hello ImageProvider Provider');
   }
 
@@ -22,15 +23,16 @@ export class ImageProvider {
     return this.sanitizer.bypassSecurityTrustUrl(this.image);
   }
     image: any = {
-      fileName: 'test.jpg'
+      fileName: 'test2.jpg'
     }
     trustimage: any = '';
+    data: any;
 
   getImages() {
-    return this.http.get("http://localhost:3000/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
+    return this.http.get("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
   }
 
   postImage() {
-    return this.http.post("http://localhost:3000/api/appUsers/" + this.id + "/images?access_token=" + this.token, this.image)
+    return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'), this.image)
   }
 }

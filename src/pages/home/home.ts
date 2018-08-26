@@ -14,17 +14,16 @@ export class HomePage {
   constructor(public navCtrl: NavController, private _image: ImageProvider) {}
 
   ionViewDidEnter() {
-    this._image.id = "5b81f51a602a26daf81febf1";
-    this._image.token = "pOfDGPBoYVQDNvwEbyu52e0jawnbp9Xc2B6m1HO1aCl54IvegHTC7pFvz8LhVo2r";
-    this._image.postImage()
-      .subscribe((res) => {this.data = res; 
-        console.log(this.data);
-        // this.images.push(this.data[0].fileName);
-        this.show=true;
-        console.log(this.images);
-      },
-      (err) => console.log(err)
-      )
+    console.log(this._image.sanitizer.bypassSecurityTrustUrl("data:image/jpeg;base64,file:///storage/emulated/0/Android/data/io.ionic.devapp/cache/1535299601949.jpg"))
+    // this._image.postImage()
+    //   .subscribe((res) => {this.data = res; 
+    //     console.log(this.data);
+    //     // this.images.push(this.data[0].fileName);
+    //     this.show=true;
+    //     console.log(this.images);
+    //   },
+    //   (err) => console.log(err)
+    //   )
   }
 
 }
