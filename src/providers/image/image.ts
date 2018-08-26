@@ -14,6 +14,7 @@ export class ImageProvider {
   id: any = '';
   token: any = '';
   show: any;
+  photoTaken: boolean;
 
   constructor(public http: HttpClient, public sanitizer: DomSanitizer) {
     console.log('Hello ImageProvider Provider');
