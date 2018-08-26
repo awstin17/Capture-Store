@@ -29,7 +29,7 @@ export class CameraComponent {
 
   options: CameraOptions = {
     quality: 100,
-    destinationType: this.camera.DestinationType.FILE_URI,
+    destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
   }
@@ -49,7 +49,7 @@ export class CameraComponent {
         // this.sanitizedData = this.sanitizer.bypassSecurityTrustUrl(this.data);
         // this._image.image.fileName = this.sanitizedData.changingThisBreaksApplicationSecurity;
         this._image.show = "yes plz";
-        console.log(this.data);
+        console.log(this._image.data);
         this._image.postImage()
           .subscribe((res) => console.log("successful response"),
             (err) => console.log("postimageerror")
