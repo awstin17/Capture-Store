@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { UserProvider } from  '../../providers/user/user';
 import { TabsPage } from '../tabs/tabs';
+import { RegistrationPage } from '../registration/registration';
 
 /**
  * Generated class for the LoginPage page.
@@ -39,6 +40,10 @@ export class LoginPage {
       (error) => alert("invalid credentials, booooo")
       
       )
+  }
+
+  toRegistration() {
+    this.navCtrl.setRoot(RegistrationPage);
   }
 
 }

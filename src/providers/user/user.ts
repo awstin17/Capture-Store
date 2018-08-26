@@ -32,6 +32,8 @@ export class UserProvider {
   }
 
   login() {
+    console.log("fired")
+    console.log(this.credentials);
     return this.http.post("http://localhost:3000/api/appUsers/login", this.credentials);
   }
 }

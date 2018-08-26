@@ -10,6 +10,6 @@
     <input [(ngModel)] = "_user.credentials.password"> <br> {{_user.credentials.password}}
     <button (click) = "login()">Login</button>
     <a>Forgot Password?</a>
-    <a>No Account?</a>
+    <a (click) = "toRegistration()">No Account?</a>
 
 </ion-content>

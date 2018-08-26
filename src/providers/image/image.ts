@@ -18,6 +18,12 @@ export class ImageProvider {
   photoURL() {
     return this.sanitizer.bypassSecurityTrustUrl(this.image);
   }
-    image: any = '';
+    image: any = {
+      fileName: 'test.jpg'
+    }
     trustimage: any = '';
+
+  getImages() {
+    return this.http.get("http://localhost:3000/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
+  }
 }

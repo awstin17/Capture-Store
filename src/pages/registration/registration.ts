@@ -38,4 +38,8 @@ export class RegistrationPage {
      (error) => console.log(error)
       )
   }
+
+  toLogin() {
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

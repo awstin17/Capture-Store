@@ -42,8 +42,8 @@ export class CameraComponent {
         document.getElementById("icon").style.fontSize = "60px";
         document.getElementById("icon").style.left = "43%";
         this._image.image = 'data:image/jpeg;base64,' + imageData
-        this.storage.set('1', this._image.image);
-        this.storage.get('1').then((res) => console.log(res))
+        // this.storage.set('1', this._image.image);
+        // this.storage.get('1').then((res) => console.log(res))
         // this._image.photoURL();
         console.log(this._image.image)
        }, (err) => {

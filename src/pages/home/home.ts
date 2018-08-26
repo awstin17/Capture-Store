@@ -8,6 +8,20 @@ import { ImageProvider } from '../../providers/image/image';
 })
 export class HomePage {
 
+  images: any = [];
+  data: any;
+
   constructor(public navCtrl: NavController, private _image: ImageProvider) {}
+
+  ionViewDidEnter() {
+    this._image.getImages()
+      .subscribe((res) => {this.data = res; 
+        console.log(this.data);
+        this.images.push(this.data[0].fileName);
+        console.log(this.images);
+      },
+      (err) => console.log(err)
+      )
+  }
 
 }
