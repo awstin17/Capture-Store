@@ -32,24 +32,29 @@ export class CameraComponent {
   }
 
     onClick() {
-      document.getElementById("icon").style.color = "#488aff"
-      document.getElementById("icon").style.fontSize = "65px";
-      document.getElementById("icon").style.left = "42.3%";
+      // document.getElementById("icon").style.color = "#488aff"
+      // document.getElementById("icon").style.fontSize = "65px";
+      // document.getElementById("icon").style.left = "42.3%";
       this.camera.getPicture(this.options).then((imageData) => {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
-        document.getElementById("icon").style.color = "black"
-        document.getElementById("icon").style.fontSize = "60px";
-        document.getElementById("icon").style.left = "43%";
-        this._image.image = 'data:image/jpeg;base64,' + imageData
+        // document.getElementById("icon").style.color = "black"
+        // document.getElementById("icon").style.fontSize = "60px";
+        // document.getElementById("icon").style.left = "43%";
+        // this._image.image.fileName = 'data:image/jpeg;base64,' + imageData
         // this.storage.set('1', this._image.image);
         // this.storage.get('1').then((res) => console.log(res))
         // this._image.photoURL();
-        console.log(this._image.image)
+        // console.log(this._image.image.fileName)
+        this._image.postImage()
+          .subscribe((res) => console.log("successful response"),
+            (err) => console.log("postimageerror")
+          )
        }, (err) => {
-        document.getElementById("icon").style.color = "black"
-        document.getElementById("icon").style.fontSize = "60px";
-        document.getElementById("icon").style.left = "43%";
+        // document.getElementById("icon").style.color = "black"
+        // document.getElementById("icon").style.fontSize = "60px";
+        // document.getElementById("icon").style.left = "43%";
+        console.log("getpictureerror")
        });
     }
 }

@@ -11,6 +11,9 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 @Injectable()
 export class ImageProvider {
 
+  id: any = '';
+  token: any = '';
+
   constructor(public http: HttpClient, private sanitizer: DomSanitizer) {
     console.log('Hello ImageProvider Provider');
   }
@@ -25,5 +28,9 @@ export class ImageProvider {
 
   getImages() {
     return this.http.get("http://localhost:3000/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
+  }
+
+  postImage() {
+    return this.http.post("http://localhost:3000/api/appUsers/" + this.id + "/images?access_token=" + this.token, this.image)
   }
 }

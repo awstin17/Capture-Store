@@ -28,12 +28,10 @@ export class UserProvider {
   }
 
   register() {
-    return this.http.post("http://localhost:3000/api/appUsers", this.user)
+    return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers", this.user)
   }
 
   login() {
-    console.log("fired")
-    console.log(this.credentials);
-    return this.http.post("http://localhost:3000/api/appUsers/login", this.credentials);
+    return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/login", this.credentials);
   }
 }
