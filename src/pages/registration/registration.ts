@@ -28,14 +28,11 @@ export class RegistrationPage {
   register() {
     this._user.register()
     .subscribe(
-     (res: any) => { console.log("success")
-      window.sessionStorage.setItem('token', res.token);
-      window.sessionStorage.setItem('userId', res.userId); 
-      this.navCtrl.setRoot(LoginPage);
+     (res: any) => { this.toLogin();
       // this._user.userToken = window.sessionStorage.getItem('token');
       // this._user.userId = window.sessionStorage.getItem('userId');
      },
-     (error) => console.log(error.message, "errorrrrs")
+     (error) => console.log(error.message)
       )
   }
 
