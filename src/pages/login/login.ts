@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { UserProvider } from  '../../providers/user/user';
 import { TabsPage } from '../tabs/tabs';
+import { ModalController } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
 
 /**
@@ -19,7 +20,7 @@ import { RegistrationPage } from '../registration/registration';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _user: UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private _user: UserProvider) {
   }
 
   ionViewDidLoad() {
@@ -43,7 +44,13 @@ export class LoginPage {
   }
 
   toRegistration() {
-    this.navCtrl.setRoot(RegistrationPage);
+    // this.navCtrl.setRoot(RegistrationPage);
+    this.presentModal();
+  }
+
+  presentModal() {
+    this._user.modal = this.modalCtrl.create(RegistrationPage);
+    this._user.modal.present();
   }
 
 }

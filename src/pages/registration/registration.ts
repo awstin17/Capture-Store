@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 import { LoginPage } from '../login/login';
@@ -28,7 +29,8 @@ export class RegistrationPage {
   register() {
     this._user.register()
     .subscribe(
-     (res: any) => { this.toLogin();
+     (res: any) => { alert("successful registration!");
+     this.dismissModal();
       // this._user.userToken = window.sessionStorage.getItem('token');
       // this._user.userId = window.sessionStorage.getItem('userId');
      },
@@ -38,5 +40,9 @@ export class RegistrationPage {
 
   toLogin() {
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  dismissModal() {
+    this._user.modal.dismiss();
   }
 }

@@ -1,15 +1,57 @@
-<ion-title> Test </ion-title>
-
-
 <ion-content padding>
 
-    <ion-title> Snapz </ion-title>
+    <!-- <ion-title> Snapz </ion-title>
     <ion-icon name="camera"></ion-icon> <br>
 
     <input [(ngModel)] = "_user.credentials.email"> <br> {{_user.credentials.email}}
     <input [(ngModel)] = "_user.credentials.password"> <br> {{_user.credentials.password}}
     <button (click) = "login()">Login</button>
     <a>Forgot Password?</a>
-    <a (click) = "toRegistration()">No Account?</a>
+    <a (click) = "toRegistration()">No Account?</a> -->
+
+    <ion-grid no-padding text-center>
+        <br>
+        <ion-row>
+            <ion-col>
+                <h1 padding-bottom style="border-bottom: 1px solid black; font-size: 40px"> Snapz </h1>
+                <ion-icon name="camera" style="font-size: 50px;"></ion-icon>
+                <br>
+            </ion-col>
+        </ion-row>
+    
+<br><br><br><br><br><br>
+
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <ion-input text-center [(ngModel)] = "_user.credentials.email" placeholder="Email"></ion-input> <br>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <ion-input text-center [(ngModel)] = "_user.credentials.password" placeholder="Password"></ion-input><br>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+        
+
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col col-9>
+                <button block ion-button (click) = "login()">Login</button>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+
+        <br>
+
+        <ion-row>
+            <ion-col>
+                    <a (click) = "toRegistration()">No Account?</a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>

@@ -23,6 +23,8 @@ export class UserProvider {
     password: ''
   }
 
+  modal: any;
+
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
