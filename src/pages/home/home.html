@@ -5,5 +5,7 @@
 </ion-header>
 
 <ion-content padding class="home">
+  <p *ngIf="_image.photoTaken"> {{_image.image.subtitle}} </p>
   <img [src]="_image.data" *ngIf="_image.photoTaken">
+  <p *ngIf="_image.photoTaken"> {{_image.image.description}} </p>
 </ion-content>

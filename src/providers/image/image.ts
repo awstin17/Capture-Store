@@ -15,18 +15,20 @@ export class ImageProvider {
   token: any = '';
   show: any;
   photoTaken: boolean;
+  editModal: any;
+  subtitle: any = '';
+
 
   constructor(public http: HttpClient, public sanitizer: DomSanitizer) {
     console.log('Hello ImageProvider Provider');
   }
 
-  photoURL() {
-    return this.sanitizer.bypassSecurityTrustUrl(this.image);
-  }
     image: any = {
-      fileName: 'test2.jpg'
+      fileName: 'test2.jpg',
+      subtitle: '',
+      description: ''
     }
-    trustimage: any = '';
+    
     data: any;
 
   getImages() {

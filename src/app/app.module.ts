@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import {LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
+import { EditPage } from '../pages/edit/edit';
 
 import { CameraComponent } from '../components/camera/camera';
 
@@ -35,6 +36,7 @@ import { IonicStorageModule } from '@ionic/storage';
     TabsPage,
     LoginPage,
     RegistrationPage,
+    EditPage,
     CameraComponent
   ],
   imports: [
@@ -54,7 +56,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     TabsPage,
     LoginPage,
-    RegistrationPage
+    RegistrationPage,
+    EditPage
   ],
   providers: [
     StatusBar,
