@@ -40,7 +40,7 @@ export class CameraComponent {
       // this.icon.style.fontSize = "60px";
       // this.icon.style.left = "43%";
 
-      this._image.data = 'data:image/jpeg;base64,' + imageData;
+      this._image.image.fileName = 'data:image/jpeg;base64,' + imageData;
       this._image.photoTaken = true;
       this.presentModal();
     }, (err) => {

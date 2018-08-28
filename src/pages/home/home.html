@@ -5,7 +5,23 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <p *ngIf="_image.photoTaken"> {{_image.image.subtitle}} </p>
-  <img [src]="_image.data" *ngIf="_image.photoTaken">
-  <p *ngIf="_image.photoTaken"> {{_image.image.description}} </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <p *ngIf="_image.photoTaken"> {{_image.image.subtitle}} </p> 
+      </ion-col>
+    </ion-row>
+<br><br>
+    <ion-row>
+        <ion-col>
+            <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.photoTaken"> 
+        </ion-col>
+    </ion-row>
+<br><br>
+    <ion-row>
+        <ion-col text-center>
+            <p *ngIf="_image.photoTaken"> {{_image.image.description}} </p>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
