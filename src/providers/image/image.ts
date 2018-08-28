@@ -24,7 +24,7 @@ export class ImageProvider {
   }
 
     image: any = {
-      fileName: 'test2.jpg',
+      fileName: '',
       subtitle: '',
       description: ''
     }

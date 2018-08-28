@@ -25,6 +25,15 @@ export class EditPage {
     console.log('ionViewDidLoad EditPage');
   }
 
+  saveToDatabase() {
+    this._image.postImage()
+      .subscribe((res) => { alert("successfully posted!");
+        this._image.editModal.dismiss();},
+
+        (err) => console.log(err.message)
+      )
+  }
+
   dismissModal() {
     this._image.editModal.dismiss();
   }

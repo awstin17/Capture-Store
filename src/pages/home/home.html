@@ -12,9 +12,9 @@
       </ion-col>
     </ion-row>
 <br><br>
-    <ion-row>
+    <ion-row *ngFor = "let image of data">
         <ion-col>
-            <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.photoTaken"> 
+            <img style="transform: rotate(90deg)" [src]="image.fileName" *ngIf="data"> 
         </ion-col>
     </ion-row>
 <br><br>
