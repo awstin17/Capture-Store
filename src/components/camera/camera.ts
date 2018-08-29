@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImageProvider } from '../../providers/image/image';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
@@ -21,7 +20,7 @@ export class CameraComponent {
 
   icon: any = document.getElementById("icon");
 
-  constructor(private camera: Camera, private _image: ImageProvider, private sanitizer: DomSanitizer, private storage: Storage, public modalCtrl: ModalController) {
+  constructor(private camera: Camera, private _image: ImageProvider, private storage: Storage, public modalCtrl: ModalController) {
     console.log('Hello CameraComponent Component');
   }
 
@@ -42,7 +41,7 @@ export class CameraComponent {
 
       this._image.image.fileName = 'data:image/jpeg;base64,' + imageData;
       this._image.photoTaken = true;
-      this.presentModal();
+      this.presentEditModal();
     }, (err) => {
       // this.icon.style.color = "black"
       // this.icon.style.fontSize = "60px";
@@ -51,9 +50,9 @@ export class CameraComponent {
     });
   }
 
-  presentModal() {
-    this._image.editModal = this.modalCtrl.create(EditPage);
-    this._image.editModal.present();
+  presentEditModal() {
+    let editModal = this.modalCtrl.create(EditPage);
+    editModal.present();
   }
 
 

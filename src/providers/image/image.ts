@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the ImageProvider provider.
@@ -19,7 +19,7 @@ export class ImageProvider {
   subtitle: any = '';
 
 
-  constructor(public http: HttpClient, public sanitizer: DomSanitizer) {
+  constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello ImageProvider Provider');
   }
 

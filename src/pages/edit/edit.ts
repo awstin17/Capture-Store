@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
-
+import { ViewController } from 'ionic-angular';
 import { ImageProvider } from '../../providers/image/image';
 
 /**
@@ -18,23 +17,19 @@ import { ImageProvider } from '../../providers/image/image';
 })
 export class EditPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public modalCtrl: ModalController) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EditPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl : ViewController) {
   }
 
   saveToDatabase() {
     this._image.postImage()
       .subscribe((res) => { alert("successfully posted!");
-        this._image.editModal.dismiss();},
+        this.dismissModal();},
 
         (err) => console.log(err.message)
       )
   }
 
   dismissModal() {
-    this._image.editModal.dismiss();
+    this.viewCtrl.dismiss();
   }
 }
