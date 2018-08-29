@@ -6,21 +6,22 @@ import { ModalController } from 'ionic-angular';
 import { RegistrationPage } from '../../pages/registration/registration';
 
 /*
-  Generated class for the ModalProvider provider.
+  Generated class for the TestProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class ModalProvider {
+export class ModalsProvider {
 
-  constructor(public http: HttpClient, public modalCtrl: ModalController) {
-    console.log('Hello ModalProvider Provider');
+  constructor(public http: HttpClient, private modalCtrl: ModalController) {
+    console.log('Hello TestProvider Provider');
   }
 
   registrationModal: any;
 
   presentRegistrationModal() {
+    console.log("this also works")
     this.registrationModal = this.modalCtrl.create(RegistrationPage);
     this.registrationModal.present();
   }
@@ -28,4 +29,5 @@ export class ModalProvider {
   dismissRegistrationModal() {
     this.registrationModal.dismiss();
   }
+
 }

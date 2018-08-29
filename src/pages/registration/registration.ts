@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
+import { ModalsProvider } from '../../providers/test/test';
 
 import { LoginPage } from '../login/login';
 
@@ -19,8 +20,7 @@ import { LoginPage } from '../login/login';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _user: UserProvider) {
-  }
+  constructor(private _test: ModalsProvider, public navCtrl: NavController, public navParams: NavParams, private _user: UserProvider) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
@@ -38,11 +38,7 @@ export class RegistrationPage {
       )
   }
 
-  toLogin() {
-    this.navCtrl.setRoot(LoginPage);
-  }
-
   dismissModal() {
-    this._user.modal.dismiss();
+    this._test.dismissRegistrationModal();
   }
 }
