@@ -29,6 +29,11 @@ export class ImageProvider {
       description: ''
     }
 
+    editImage: any = {
+      subtitle: '',
+      description: ''
+    }
+
     images: any;
 
   getImages() {
@@ -39,4 +44,12 @@ export class ImageProvider {
     return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'), this.image)
   }
 
+  deleteImage(userId, imgId) {
+    return this.http.delete("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + userId + "/images/" + imgId + "?access_token=" + window.sessionStorage.getItem('token'))
+
+  }
+
+  saveImage(userId, imgId) {
+    return this.http.put("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + userId + "/images/" + imgId + "?access_token=" + window.sessionStorage.getItem('token'), this.editImage);
+  }
 }

@@ -17,21 +17,41 @@ import { ImageProvider } from '../../providers/image/image';
 })
 export class EditPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl : ViewController) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl : ViewController) {}
 
   saveToDatabase() {
-    this._image.postImage()
+
+      this._image.postImage()
       .subscribe((res) => { alert("successfully posted!");
         this.dismissModal();
-        this._image.images.push(this._image.image);
+        // this._image.images.push(this._image.image);
+        let data = res;
+        this._image.images.push(data);
       },
 
-        (err) => console.log(err.message)
+        (err) => alert("photo unsuccessfully uploaded to database")
+      )
+    
+    
+  }
+
+  saveFromEditing() {
+    let userId = this.navParams.get("id");
+    let imgId = this.navParams.get("fk");
+    let index = this.navParams.get("i");
+    this._image.editImage.subtitle = this._image.image.subtitle;
+    this._image.editImage.description = this._image.image.description;
+    this._image.saveImage(userId, imgId)
+      .subscribe((res) => {alert("successful edit"); this.dismissModal()
+      this._image.images[index].subtitle = this._image.editImage.subtitle;
+      this._image.images[index].description = this._image.editImage.description;
+    },
+      (err) => alert("you suck at editing photos")
       )
   }
 
   dismissModal() {
     this.viewCtrl.dismiss();
   }
+
 }

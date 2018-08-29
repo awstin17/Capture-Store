@@ -5,22 +5,24 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <ion-grid *ngFor = "let image of _image.images">
+  <ion-grid *ngFor = "let image of _image.images; let i = index">
     <ion-row>
       <ion-col text-center>
         <p *ngIf="_image.images"> {{image.subtitle}} </p> 
+        <button ion-button (click)="delete(image.appUserId, image.id, i)">Delete</button>
+        <button ion-button (click)="edit(image.appUserId, image.id, i)">Edit</button>
       </ion-col>
     </ion-row>
 <br><br>
     <ion-row>
         <ion-col>
-            <img style="transform: rotate(90deg)" [src]="image.fileName" *ngIf="_image.images"> 
+            <img style="transform: rotate(90deg)" [src]="image.fileName" *ngIf="_image.images">
         </ion-col>
     </ion-row>
 <br><br>
     <ion-row>
         <ion-col text-center>
-            <p *ngIf="_image.images"> {{_image.image.description}} </p>
+            <p *ngIf="_image.images"> {{image.description}} </p>
         </ion-col>
     </ion-row>
   </ion-grid>
