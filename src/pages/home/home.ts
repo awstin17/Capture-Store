@@ -13,13 +13,13 @@ export class HomePage {
  
   data: any;
 
-  constructor(private _image: ImageProvider, public navCtrl: NavController, private _DomSanitizationService: DomSanitizer) {}
+  constructor(private _image: ImageProvider, public navCtrl: NavController) {}
 
   ionViewDidEnter() {
-    this._image.getImages()
-      .subscribe((res) => {console.log(res);
-        this.data = res;
-        console.log(this.data[28]);
+        this._image.getImages()
+      .subscribe((res) => {
+        this._image.images = res;
+        this._image.photoTaken = true;
       },
       (err) => console.log(err)
 

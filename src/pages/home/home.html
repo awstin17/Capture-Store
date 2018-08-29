@@ -5,22 +5,22 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <ion-grid>
+  <ion-grid *ngFor = "let image of _image.images">
     <ion-row>
       <ion-col text-center>
-        <p *ngIf="_image.photoTaken"> {{_image.image.subtitle}} </p> 
+        <p *ngIf="_image.images"> {{image.subtitle}} </p> 
       </ion-col>
     </ion-row>
 <br><br>
-    <ion-row *ngFor = "let image of data">
+    <ion-row>
         <ion-col>
-            <img style="transform: rotate(90deg)" [src]="image.fileName" *ngIf="data"> 
+            <img style="transform: rotate(90deg)" [src]="image.fileName" *ngIf="_image.images"> 
         </ion-col>
     </ion-row>
 <br><br>
     <ion-row>
         <ion-col text-center>
-            <p *ngIf="_image.photoTaken"> {{_image.image.description}} </p>
+            <p *ngIf="_image.images"> {{_image.image.description}} </p>
         </ion-col>
     </ion-row>
   </ion-grid>

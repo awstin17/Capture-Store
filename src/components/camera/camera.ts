@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImageProvider } from '../../providers/image/image';
 import { ModalController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 
 import { EditPage } from '../../pages/edit/edit';
 
@@ -20,7 +19,7 @@ export class CameraComponent {
 
   icon: any = document.getElementById("icon");
 
-  constructor(private camera: Camera, private _image: ImageProvider, private storage: Storage, public modalCtrl: ModalController) {
+  constructor(private camera: Camera, private _image: ImageProvider, public modalCtrl: ModalController) {
     console.log('Hello CameraComponent Component');
   }
 

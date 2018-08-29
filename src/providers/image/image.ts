@@ -28,8 +28,8 @@ export class ImageProvider {
       subtitle: '',
       description: ''
     }
-    
-    data: any;
+
+    images: any;
 
   getImages() {
     return this.http.get("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
@@ -38,4 +38,5 @@ export class ImageProvider {
   postImage() {
     return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'), this.image)
   }
+
 }

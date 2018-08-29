@@ -23,7 +23,9 @@ export class EditPage {
   saveToDatabase() {
     this._image.postImage()
       .subscribe((res) => { alert("successfully posted!");
-        this.dismissModal();},
+        this.dismissModal();
+        this._image.images.push(this._image.image);
+      },
 
         (err) => console.log(err.message)
       )
