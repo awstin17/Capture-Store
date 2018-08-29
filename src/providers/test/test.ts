@@ -12,7 +12,7 @@ import { RegistrationPage } from '../../pages/registration/registration';
   and Angular DI.
 */
 @Injectable()
-export class ModalsProvider {
+export class TestProvider {
 
   constructor(public http: HttpClient, private modalCtrl: ModalController) {
     console.log('Hello TestProvider Provider');

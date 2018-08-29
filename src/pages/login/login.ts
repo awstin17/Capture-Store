@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { UserProvider } from  '../../providers/user/user';
-import { ModalsProvider } from '../../providers/test/test';
 import { TabsPage } from '../tabs/tabs';
 import { ModalController } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
@@ -21,11 +20,7 @@ import { RegistrationPage } from '../registration/registration';
 })
 export class LoginPage {
 
-  constructor(private _test: ModalsProvider, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private _user: UserProvider) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private _user: UserProvider) {
   }
 
   login() {
@@ -44,9 +39,8 @@ export class LoginPage {
       )
   }
 
-  toRegistration() {
-    console.log("this works");
-    this._test.presentRegistrationModal();
+  presentRegistrationModal() {
+    let registrationModal = this.modalCtrl.create(RegistrationPage);
+    registrationModal.present();
   }
-
 }

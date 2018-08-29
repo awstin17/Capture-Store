@@ -26,7 +26,6 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { IonicStorageModule } from '@ionic/storage';
-import { ModalsProvider } from '../providers/test/test';
 
 @NgModule({
   declarations: [
@@ -70,8 +69,7 @@ import { ModalsProvider } from '../providers/test/test';
     ImageProvider,
     File,
     FileTransfer,
-    FilePath,
-    ModalsProvider
+    FilePath
   ]
 })
 export class AppModule {}

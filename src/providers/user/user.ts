@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 /*
   Generated class for the UserProvider provider.
 
@@ -10,6 +9,10 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class UserProvider {
+
+  constructor(public http: HttpClient) {
+    console.log('Hello UserProvider Provider');
+  }
 
   user: any = {
     firstName: '',
@@ -23,12 +26,6 @@ export class UserProvider {
     password: ''
   }
 
-  modal: any;
-
-  constructor(public http: HttpClient) {
-    console.log('Hello UserProvider Provider');
-  }
-
   register() {
     return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers", this.user)
   }
@@ -36,4 +33,5 @@ export class UserProvider {
   login() {
     return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/login", this.credentials);
   }
+
 }
