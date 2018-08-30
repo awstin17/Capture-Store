@@ -15,7 +15,7 @@
 
 <ion-content padding>
     <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.show === 'camera'">
-    <!-- <img id="edit" style="transform: rotate(90deg)" src="_image.images[0].fileName" *ngIf="_image.show === 'home'"> -->
+    <img id="edit" style="transform: rotate(90deg)" [src]="_image.images[index].fileName" *ngIf="_image.show === 'home'">
     <ion-input [(ngModel)] = "_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
     <ion-input [(ngModel)] = "_image.image.description" type="text" placeholder="Description"></ion-input>
     <button block ion-button *ngIf="_image.show === 'camera'" (click) = "saveToDatabase()">Save</button>
