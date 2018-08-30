@@ -11,8 +11,6 @@ import { EditPage } from '../edit/edit';
   templateUrl: 'home.html'
 })
 export class HomePage {
- 
-  data: any;
 
   constructor(private _image: ImageProvider, public navCtrl: NavController, private modalCtrl: ModalController) {}
 

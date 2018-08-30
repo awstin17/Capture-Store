@@ -17,7 +17,14 @@ import { ImageProvider } from '../../providers/image/image';
 })
 export class EditPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl : ViewController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl : ViewController) {
+    let userId = this.navParams.get("id");
+    let imgId = this.navParams.get("fk");
+    let index = this.navParams.get("i");
+    console.log(this._image.images[index].fileName);
+  }
+
+  index2: any;
 
   saveToDatabase() {
 
@@ -39,6 +46,7 @@ export class EditPage {
     let userId = this.navParams.get("id");
     let imgId = this.navParams.get("fk");
     let index = this.navParams.get("i");
+    this.index2 = index;
     this._image.editImage.subtitle = this._image.image.subtitle;
     this._image.editImage.description = this._image.image.description;
     this._image.saveImage(userId, imgId)

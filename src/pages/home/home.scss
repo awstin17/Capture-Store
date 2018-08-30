@@ -1,3 +1,8 @@
 page-home {
+    text-align: center
+}
 
+// This image styling is a temporary fix. Images are captured sideways for some reason
+.image {
+    transform: rotate(90deg);
 }

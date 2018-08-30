@@ -1,11 +1,12 @@
 page-registration {
-
+    text-align: center;
 }
 
-// .under {
-//     position: relative;
-//     top: -30px;
-// }
+.snapz {
+    // border-bottom: 1px solid black; 
+    font-size: 40px;
+    padding-bottom: 10px;
+}
 
 ion-input {
     height: 40px;
@@ -15,14 +16,6 @@ ion-input {
     border: 1px solid black;
 }
 
-.size {
-    font-size: 4vh;
-}
-
-.size2 {
-    font-size: 3vh;
-}
-
-#main2 {
+#main {
     background-image: url('../assets/imgs/grand-canyon.jpg');
 }

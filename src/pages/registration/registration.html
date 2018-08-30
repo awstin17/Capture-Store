@@ -1,8 +1,8 @@
-<ion-content id="main2">
-    <ion-grid no-padding text-center>
+<ion-content id="main">
+    <ion-grid no-padding>
         <ion-row>
             <ion-col>
-                <h1 padding-bottom style="border-bottom: 1px solid black; font-size: 40px;"> Snapz </h1>
+                <h1 class="snapz"> Snapz </h1>
                 <h2>Create Your Account!</h2>
                 <br>
             </ion-col>
@@ -27,14 +27,14 @@
         <ion-row>
             <ion-col></ion-col>
             <ion-col col-9>
-                <ion-input text-center [(ngModel)] = "_user.user.email" placeholder="email"></ion-input> <br> 
+                <ion-input text-center type="email" [(ngModel)] = "_user.user.email" placeholder="email"></ion-input> <br> 
             </ion-col>
             <ion-col></ion-col>
         </ion-row>
         <ion-row>
             <ion-col></ion-col>
             <ion-col col-9>
-                    <ion-input text-center [(ngModel)] = "_user.user.password" placeholder="password"></ion-input> <br> 
+                    <ion-input text-center type="password" [(ngModel)] = "_user.user.password" placeholder="password"></ion-input> <br> 
             </ion-col>
             <ion-col></ion-col>
         </ion-row>

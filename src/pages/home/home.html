@@ -1,29 +1,40 @@
 <ion-header>
   <ion-navbar>
-    <ion-title text-center >My Photos</ion-title>
+    <ion-title>My Photos</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="home">
-  <ion-grid *ngFor = "let image of _image.images; let i = index">
-    <ion-row>
-      <ion-col text-center>
-        <p *ngIf="_image.images"> {{image.subtitle}} </p> 
-        <button ion-button (click)="delete(image.appUserId, image.id, i)">Delete</button>
-        <button ion-button (click)="edit(image.appUserId, image.id, i)">Edit</button>
-      </ion-col>
-    </ion-row>
-<br><br>
-    <ion-row>
+<ion-content class="home">
+  <!-- this *ngIf is for at the beginning on initial homepage load when you're waiting for your http response -->
+
+  <div *ngIf="_image.images">
+
+    <!-- This ngfor displays all images in a user's image array according to subtitle, buttons, image, description
+    the let i = index helps us for button functionality where we want to edit or delete based on image place in array -->
+
+    <ion-grid *ngFor="let image of _image.images; let i = index">
+      <ion-row>
         <ion-col>
-            <img style="transform: rotate(90deg)" [src]="image.fileName" *ngIf="_image.images">
+          <p> {{image.subtitle}} </p>
+          <!-- I pass in appUserid and id because they are required for http requests to edit and delete -->
+          <button ion-button (click)="delete(image.appUserId, image.id, i)">Delete</button>
+          <button ion-button (click)="edit(image.appUserId, image.id, i)">Edit</button>
         </ion-col>
-    </ion-row>
-<br><br>
-    <ion-row>
-        <ion-col text-center>
-            <p *ngIf="_image.images"> {{image.description}} </p>
+      </ion-row>
+      <br>
+      <br>
+      <ion-row>
+        <ion-col>
+          <img class="image" [src]="image.fileName">
         </ion-col>
-    </ion-row>
-  </ion-grid>
+      </ion-row>
+      <br>
+      <br>
+      <ion-row>
+        <ion-col>
+          <p> {{image.description}} </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

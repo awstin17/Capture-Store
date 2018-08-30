@@ -19,18 +19,26 @@ export class LoginPage {
   login() {
     this._user.login()
     .subscribe(
-      (response: any) => {console.log(response);
-      alert("You are logged in!");
+      (response: any) => {
+
+        //This part below, upon successful login, takes the token and 
+        // userId and places them in the browser's session storage
+        // Then it sets the root page as the tabs page"
+
+        alert("You are logged in!");
         window.sessionStorage.setItem('token', response.token);
         window.sessionStorage.setItem('userId', response.userId);
         this.navCtrl.setRoot(TabsPage);
       },
-      (error) => alert("invalid credentials, booooo")
+      (error) => alert("invalid credentials. Please try again")
       
       )
   }
 
   presentRegistrationModal() {
+
+    //This essentially just pops up the registration page as a modal
+
     let registrationModal = this.modalCtrl.create(RegistrationPage);
     registrationModal.present();
   }
