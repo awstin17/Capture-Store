@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the ImageProvider provider.
@@ -19,7 +19,7 @@ export class ImageProvider {
   subtitle: any = '';
 
 
-  constructor(public http: HttpClient, private storage: Storage) {
+  constructor(public http: HttpClient) {
     console.log('Hello ImageProvider Provider');
   }
 

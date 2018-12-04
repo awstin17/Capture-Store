@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 import { ImageProvider } from '../../providers/image/image';
 import { ModalController } from 'ionic-angular';
 
@@ -20,7 +20,7 @@ export class CameraComponent {
   constructor(private camera: Camera, private _image: ImageProvider, public modalCtrl: ModalController) {}
 
   onClick() {
-    let icon = document.getElementById("icon");
+    // let icon = document.getElementById("icon");
     // icon.style.color = "#488aff"
     // icon.style.fontSize = "65px";
     // icon.style.left = "42.3%";
