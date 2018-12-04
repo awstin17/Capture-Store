@@ -19,11 +19,11 @@ export class UserProvider {
   }
 
   register() {
-    return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers", this.user)
+    return this.http.post("https://capture-store-backend.herokuapp.com/api/appUsers", this.user)
   }
 
   login() {
-    return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/login", this.credentials);
+    return this.http.post("https://capture-store-backend.herokuapp.com/api/appUsers/login", this.credentials);
   }
 
 }

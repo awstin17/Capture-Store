@@ -37,19 +37,19 @@ export class ImageProvider {
     images: any;
 
   getImages() {
-    return this.http.get("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
+    return this.http.get("https://capture-store-backend.herokuapp.com/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'))
   }
 
   postImage() {
-    return this.http.post("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'), this.image)
+    return this.http.post("https://capture-store-backend.herokuapp.com/api/appUsers/" + window.sessionStorage.getItem('userId') + "/images?access_token=" + window.sessionStorage.getItem('token'), this.image)
   }
 
   deleteImage(userId, imgId) {
-    return this.http.delete("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + userId + "/images/" + imgId + "?access_token=" + window.sessionStorage.getItem('token'))
+    return this.http.delete("https://capture-store-backend.herokuapp.com/api/appUsers/" + userId + "/images/" + imgId + "?access_token=" + window.sessionStorage.getItem('token'))
 
   }
 
   saveImage(userId, imgId) {
-    return this.http.put("http://summer-austin-2018-phortonssf.c9users.io:8080/api/appUsers/" + userId + "/images/" + imgId + "?access_token=" + window.sessionStorage.getItem('token'), this.editImage);
+    return this.http.put("https://capture-store-backend.herokuapp.com/api/appUsers/" + userId + "/images/" + imgId + "?access_token=" + window.sessionStorage.getItem('token'), this.editImage);
   }
 }
