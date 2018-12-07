@@ -16,8 +16,8 @@
 <ion-content padding>
   <ion-grid *ngIf="_image.show === 'camera'">
     <ion-row>
-      <ion-col col-12>
-        <video *ngIf="videoDisplay === true" #video autoplay style="width: 50%; margin: auto;"></video>
+      <ion-col col-12 style="display: flex; align-items: flex-end">
+        <video *ngIf="videoDisplay === true" #video autoplay style="width: 40%; margin: auto;"></video>
         <img #screenshotimage alt="" style="width: 100%; height: 250px; display: none">
       </ion-col>
     </ion-row>
