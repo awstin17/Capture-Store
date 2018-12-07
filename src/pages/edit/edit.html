@@ -22,16 +22,22 @@
       </ion-col>
     </ion-row>
 
-    <div *ngIf="videoDisplay === true">
-      <button id="screenshot-button" (click)="takeScreenshot()">Take a screenshot!</button>
-    </div>
+    <ion-row style="position: fixed; width: 100%; bottom: 26px; left: 0;" text-center *ngIf="videoDisplay === true">
+      <ion-col col-12>
+        <ion-icon id="screenshot-button" (click)="takeScreenshot()" name="aperture" style="font-size: 60px;"></ion-icon>
+      </ion-col>
+    </ion-row>
 
-    <div *ngIf="screenshotDisplay === true">
-      <button id="screenshot-button" (click)="showEditFields()">Accept screenshot!</button>
-      <button id="screenshot-button" (click)="takeAnother()">Take another</button>
-    </div>
+    <ion-row style="position: fixed; width: 100%; bottom: 26px; left: 0;" text-center *ngIf="screenshotDisplay === true">
+      <ion-col col-6>
+        <ion-icon (click)="showEditFields()" name="checkmark-circle" style="font-size: 60px"></ion-icon>
+      </ion-col>
+      <ion-col col-6>
+        <ion-icon (click)="takeAnother()" name="trash" style="font-size: 60px"></ion-icon>
+      </ion-col>
+    </ion-row>
 
-    <div *ngIf ="editFieldsDisplay">
+    <div *ngIf="editFieldsDisplay">
       <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
       <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
       <button block ion-button (click)="saveToDatabase()" [disabled]="videoDisplay">Save</button>
