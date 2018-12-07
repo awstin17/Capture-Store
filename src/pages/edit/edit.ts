@@ -39,6 +39,12 @@ export class EditPage {
 .catch(function(err) { console.log(err.name + ": " + err.message); });
   }
 
+  hideVideoandScreenshot() {
+      this.video.nativeElement.style.display = "none";
+      // this.img.nativeElement.style.display = "none";
+      // this._image.show = 'home';
+  }
+
   saveToDatabase() {
 
       this._image.postImage()

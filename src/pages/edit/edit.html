@@ -14,15 +14,23 @@
 
 
 <ion-content padding>
-
+  <div *ngIf="_image.show === 'camera'">
+    <div *ngIf="video.style.display != 'none'">
     <button id="screenshot-button" (click)="hello()">Take a screenshot!</button>
-  <button id="screenshot-button" (click)="saveToDatabase()">Take a screenshot!</button>
-  <video #video autoplay></video>
-  <img #screenshotimage  alt="">
-    <!-- <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.show === 'camera'">
+    <button id="screenshot-button" (click)="hideVideoandScreenshot()">Accept screenshot!</button>
+  </div>
+    <video #video autoplay></video>
+    <img #screenshotimage alt="">
+    <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
+    <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
+    <button block ion-button (click)="saveToDatabase()" [disabled]="video.style.display != 'none'">Save</button>
+  </div>
+
+  <div *ngIf="_image.show === 'home'">
+    <!-- <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.show === 'home'"> -->
     <img id="edit" style="transform: rotate(90deg)" [src]="_image.images[index].fileName" *ngIf="_image.show === 'home'">
-    <ion-input [(ngModel)] = "_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
-    <ion-input [(ngModel)] = "_image.image.description" type="text" placeholder="Description"></ion-input>
-    <button block ion-button *ngIf="_image.show === 'camera'" (click) = "saveToDatabase()">Save</button>
-    <button block ion-button *ngIf="_image.show === 'home'" (click) = "saveFromEditing()">Edit</button> -->
+    <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
+    <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
+    <button block ion-button *ngIf="_image.show === 'home'" (click)="saveFromEditing()">Edit</button>
+  </div>
 </ion-content>
