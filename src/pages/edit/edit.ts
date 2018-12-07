@@ -54,6 +54,7 @@ export class EditPage {
 
   dismissModal() {
     this.viewCtrl.dismiss();
+    console.log('test');
   }
 
 }
