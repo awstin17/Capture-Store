@@ -18,7 +18,7 @@
     <ion-row>
       <ion-col col-12>
         <video *ngIf="videoDisplay === true" #video autoplay style="width: 100%; height: 250px;"></video>
-        <img #screenshotimage alt="">
+        <img #screenshotimage alt="" style="width: 100%; height: 250px; display: none">
       </ion-col>
     </ion-row>
 
@@ -46,8 +46,7 @@
   </ion-grid>
 
   <div *ngIf="_image.show === 'home'">
-    <!-- <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.show === 'home'"> -->
-    <img id="edit" style="transform: rotate(90deg)" [src]="_image.images[index].fileName" *ngIf="_image.show === 'home'">
+    <img id="edit" [src]="_image.images[index].fileName" *ngIf="_image.show === 'home'">
     <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
     <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
     <button block ion-button *ngIf="_image.show === 'home'" (click)="saveFromEditing()">Edit</button>

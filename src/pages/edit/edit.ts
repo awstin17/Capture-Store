@@ -33,6 +33,7 @@ export class EditPage {
 
   ionViewDidEnter() {
     this.startUpVideo();
+    // this.hideScreenshot();
   }
 
   saveToDatabase() {
