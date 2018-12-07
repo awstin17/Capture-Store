@@ -6,7 +6,9 @@
 
 <ion-content class="home">
   <!-- this *ngIf is for at the beginning on initial homepage load when you're waiting for your http response -->
-
+  <button id="screenshot-button" (click)="hello()">Take a screenshot!</button>
+  <video #video autoplay></video>
+  <img #screenshotimage  alt="">
   <div *ngIf="_image.images">
 
     <!-- This ngfor displays all images in a user's image array according to subtitle, buttons, image, description

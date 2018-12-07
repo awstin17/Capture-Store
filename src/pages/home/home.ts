@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild } from '@angular/core';
 import {NavController} from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 
@@ -14,6 +14,14 @@ export class HomePage {
 
   constructor(private _image: ImageProvider, public navCtrl: NavController, private modalCtrl: ModalController) {}
 
+  constraints: any = { audio: false, video: { facingMode: "user", width: 500, height: 500 } }; 
+  
+  screenshotButton: any = document.querySelector('#screenshot-button');
+  // img: any = document.querySelector('#imageimage');
+  @ViewChild('screenshotimage') img;
+  canvas: any = document.createElement('canvas');
+  @ViewChild('video') video;
+
   ionViewDidEnter() {
         this._image.getImages()
       .subscribe((res) => {
@@ -24,6 +32,16 @@ export class HomePage {
       (err) => console.log(err)
 
       )
+      
+      
+navigator.mediaDevices.getUserMedia(this.constraints)
+.then(function(mediaStream) {
+  document.querySelector('video').srcObject = mediaStream;
+  document.querySelector('video').onloadedmetadata = function(e) {
+    document.querySelector('video').play();
+  };
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
   }
 
   delete(userId, imgId, i) {
@@ -44,5 +62,14 @@ export class HomePage {
     let obj = {id: userId, fk: imgId, i: index}
     let editModal = this.modalCtrl.create(EditPage, obj);
     editModal.present();
+  }
+
+  hello() {
+    console.log('hello');
+    this.canvas.width = this.video.nativeElement.videoWidth;
+  this.canvas.height = this.video.nativeElement.videoHeight;
+  this.canvas.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
+  this.img.nativeElement.src = this.canvas.toDataURL('image/webp');
+  console.log(this.img)
   }
 }
