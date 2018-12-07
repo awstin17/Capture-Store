@@ -14,17 +14,30 @@
 
 
 <ion-content padding>
-  <div *ngIf="_image.show === 'camera'">
-    <div *ngIf="video.style.display != 'none'">
-    <button id="screenshot-button" (click)="takeScreenshot()">Take a screenshot!</button>
-    <button id="screenshot-button" (click)="hideVideoandScreenshot()">Accept screenshot!</button>
-  </div>
-    <video #video autoplay></video>
-    <img #screenshotimage alt="">
-    <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
-    <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
-    <button block ion-button (click)="saveToDatabase()" [disabled]="video.style.display != 'none'">Save</button>
-  </div>
+  <ion-grid *ngIf="_image.show === 'camera'">
+    <ion-row>
+      <ion-col col-12>
+        <video *ngIf="videoDisplay === true" #video autoplay style="width: 100%; height: 250px;"></video>
+        <img #screenshotimage alt="">
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="videoDisplay === true">
+      <button id="screenshot-button" (click)="takeScreenshot()">Take a screenshot!</button>
+    </div>
+
+    <div *ngIf="screenshotDisplay === true">
+      <button id="screenshot-button" (click)="showEditFields()">Accept screenshot!</button>
+      <button id="screenshot-button" (click)="takeAnother()">Take another</button>
+    </div>
+
+    <div *ngIf ="editFieldsDisplay">
+      <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
+      <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
+      <button block ion-button (click)="saveToDatabase()" [disabled]="videoDisplay">Save</button>
+    </div>
+
+  </ion-grid>
 
   <div *ngIf="_image.show === 'home'">
     <!-- <img style="transform: rotate(90deg)" [src]="_image.image.fileName" *ngIf="_image.show === 'home'"> -->
@@ -33,4 +46,5 @@
     <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
     <button block ion-button *ngIf="_image.show === 'home'" (click)="saveFromEditing()">Edit</button>
   </div>
+
 </ion-content>

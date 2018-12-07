@@ -20,7 +20,10 @@ export class EditPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl: ViewController) { this.index = this.navParams.get("i"); }
 
   index: any;
-  constraints: any = { audio: false, video: { facingMode: "user", width: 500, height: 500 } };
+  screenshotDisplay: any;
+  videoDisplay: any = true;
+  editFieldsDisplay: any;
+  constraints: any = { audio: false, video: { facingMode: "user" } };
 
   screenshotButton: any = document.querySelector('#screenshot-button');
   // img: any = document.querySelector('#imageimage');
@@ -29,20 +32,7 @@ export class EditPage {
   @ViewChild('video') video;
 
   ionViewDidEnter() {
-    navigator.mediaDevices.getUserMedia(this.constraints)
-      .then(function (mediaStream) {
-        document.querySelector('video').srcObject = mediaStream;
-        document.querySelector('video').onloadedmetadata = function (e) {
-          document.querySelector('video').play();
-        };
-      })
-      .catch(function (err) { console.log(err.name + ": " + err.message); });
-  }
-
-  hideVideoandScreenshot() {
-    this.video.nativeElement.style.display = "none";
-    // this.img.nativeElement.style.display = "none";
-    // this._image.show = 'home';
+    this.startUpVideo();
   }
 
   saveToDatabase() {
@@ -92,13 +82,67 @@ export class EditPage {
     console.log('test');
   }
 
+  startUpVideo() {
+    navigator.mediaDevices.getUserMedia(this.constraints)
+      .then(function (mediaStream) {
+        document.querySelector('video').srcObject = mediaStream;
+        document.querySelector('video').onloadedmetadata = function (e) {
+          document.querySelector('video').play();
+        };
+      })
+      .catch(function (err) { console.log(err.name + ": " + err.message); });
+  }
+
+  hideVideoandButtons() {
+    // this.video.nativeElement.style.display = "none";
+    this.videoDisplay = false;
+    // this.img.nativeElement.style.display = "none";
+    // this._image.show = 'home';
+  }
+
+  showVideoandButtons() {
+    this.videoDisplay = true;
+  }
+
+  hideScreenshot() {
+    this.img.nativeElement.style.display = 'none';
+    this.screenshotDisplay = false;
+  }
+
+  showScreenshot() {
+    this.img.nativeElement.style.display = 'block';
+    this.screenshotDisplay = true;
+  }
+
   takeScreenshot() {
+
     this.canvas.width = this.video.nativeElement.videoWidth;
     this.canvas.height = this.video.nativeElement.videoHeight;
     this.canvas.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
     let base64Image = this.canvas.toDataURL('data:image/jpeg;base64,');
     this.img.nativeElement.src = base64Image;
     this._image.image.fileName = base64Image;
+    this.hideVideoandButtons();
+    this.showScreenshot();
+    // this.img.nativeElement.style.display === "block";
+    // this.video.nativeElement.style.display === "none";
+    // console.log(this.video.nativeElement.style.display);
+
+  }
+
+  takeAnother() {
+    this.showVideoandButtons();
+    this.hideScreenshot();
+    this.startUpVideo();
+  }
+
+  showEditFields() {
+    this.editFieldsDisplay = true;
+    this.screenshotDisplay = false;
+  }
+
+  hideEditFields() {
+    this.editFieldsDisplay = false;
   }
 
 }
