@@ -69,7 +69,23 @@ navigator.mediaDevices.getUserMedia(this.constraints)
     this.canvas.width = this.video.nativeElement.videoWidth;
   this.canvas.height = this.video.nativeElement.videoHeight;
   this.canvas.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
-  this.img.nativeElement.src = this.canvas.toDataURL('image/webp');
-  console.log(this.img)
+  let base64Image = this.canvas.toDataURL('data:image/jpeg;base64,');
+  this.img.nativeElement.src = base64Image;
+  console.log(base64Image);
+  this._image.image.fileName = base64Image;
   }
+
+  saveToDatabase() {
+
+    this._image.postImage()
+    .subscribe((res) => { alert("successfully posted!");
+      let data = res;
+      this._image.images.push(data);
+    },
+
+      (err) => alert("photo unsuccessfully uploaded to database")
+    )
+  
+  
+}
 }
