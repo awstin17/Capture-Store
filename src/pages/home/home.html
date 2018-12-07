@@ -6,7 +6,6 @@
 
 <ion-content class="home">
   <!-- this *ngIf is for at the beginning on initial homepage load when you're waiting for your http response -->
-
   <div *ngIf="_image.images">
 
     <!-- This ngfor displays all images in a user's image array according to subtitle, buttons, image, description
@@ -25,7 +24,7 @@
       <br>
       <ion-row>
         <ion-col>
-          <img class="image" [src]="image.fileName">
+          <img style="transform: rotate(0deg)" class="image" [src]="image.fileName">
         </ion-col>
       </ion-row>
       <br>

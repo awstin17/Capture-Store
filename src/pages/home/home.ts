@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 
 import { ImageProvider } from '../../providers/image/image';
@@ -18,8 +18,6 @@ export class HomePage {
         this._image.getImages()
       .subscribe((res) => {
         this._image.images = res;
-        this._image.photoTaken = true;
-        console.log(this._image.images);
       },
       (err) => console.log(err)
 
@@ -45,4 +43,5 @@ export class HomePage {
     let editModal = this.modalCtrl.create(EditPage, obj);
     editModal.present();
   }
+
 }

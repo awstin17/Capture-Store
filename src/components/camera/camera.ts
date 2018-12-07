@@ -25,26 +25,26 @@ export class CameraComponent {
     // icon.style.fontSize = "65px";
     // icon.style.left = "42.3%";
 
-    let options = {
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      destinationType: this.camera.DestinationType.DATA_URL
-    };
+    // let options = {
+    //   sourceType: this.camera.PictureSourceType.CAMERA,
+    //   destinationType: this.camera.DestinationType.DATA_URL
+    // };
 
-    this.camera.getPicture(options).then((imageData) => {
+    // this.camera.getPicture(options).then((imageData) => {
         // icon.style.color = "black"
         // icon.style.fontSize = "60px";
         // icon.style.left = "43%";
         this._image.show = "camera";
-        this._image.image.fileName = 'data:image/jpeg;base64,' + imageData;
-        this._image.photoTaken = true;
+        // this._image.image.fileName = 'data:image/jpeg;base64,' + imageData;
+        // this._image.photoTaken = true;
         this.presentEditModal();
-    }, 
-      (err) => {
-        // icon.style.color = "black"
-        // icon.style.fontSize = "60px";
-        // icon.style.left = "43%";
-        alert("unsuccessful image capture");
-    });
+    // }, 
+    //   (err) => {
+    //     // icon.style.color = "black"
+    //     // icon.style.fontSize = "60px";
+    //     // icon.style.left = "43%";
+    //     alert("unsuccessful image capture");
+    // });
   }
 
   presentEditModal() {
