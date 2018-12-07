@@ -53,6 +53,10 @@ export class EditPage {
         // this._image.images.push(this._image.image);
         let data = res;
         this._image.images.push(data);
+
+        this._image.image.fileName = '';
+        this._image.image.subtitle = '';
+        this._image.image.description = '';
       },
 
         (err) => alert("photo unsuccessfully uploaded to database")
@@ -71,6 +75,11 @@ export class EditPage {
       .subscribe((res) => {alert("successful edit"); this.dismissModal()
       this._image.images[this.index].subtitle = this._image.editImage.subtitle;
       this._image.images[this.index].description = this._image.editImage.description;
+      this._image.editImage.subtitle = '';
+      this._image.editImage.description = '';
+      this._image.image.fileName = '';
+        this._image.image.subtitle = '';
+        this._image.image.description = '';
     },
       (err) => alert("you suck at editing photos")
       )
