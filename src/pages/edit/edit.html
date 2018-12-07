@@ -16,7 +16,7 @@
 <ion-content padding>
   <div *ngIf="_image.show === 'camera'">
     <div *ngIf="video.style.display != 'none'">
-    <button id="screenshot-button" (click)="hello()">Take a screenshot!</button>
+    <button id="screenshot-button" (click)="takeScreenshot()">Take a screenshot!</button>
     <button id="screenshot-button" (click)="hideVideoandScreenshot()">Accept screenshot!</button>
   </div>
     <video #video autoplay></video>
