@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 import { ImageProvider } from '../../providers/image/image';
@@ -20,6 +20,24 @@ export class EditPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public _image: ImageProvider, public viewCtrl : ViewController) {this.index = this.navParams.get("i");}
 
   index: any;
+  constraints: any = { audio: false, video: { facingMode: "user", width: 500, height: 500 } }; 
+  
+  screenshotButton: any = document.querySelector('#screenshot-button');
+  // img: any = document.querySelector('#imageimage');
+  @ViewChild('screenshotimage') img;
+  canvas: any = document.createElement('canvas');
+  @ViewChild('video') video;
+
+  ionViewDidEnter() {
+    navigator.mediaDevices.getUserMedia(this.constraints)
+.then(function(mediaStream) {
+  document.querySelector('video').srcObject = mediaStream;
+  document.querySelector('video').onloadedmetadata = function(e) {
+    document.querySelector('video').play();
+  };
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); });
+  }
 
   saveToDatabase() {
 
@@ -54,6 +72,17 @@ export class EditPage {
 
   dismissModal() {
     this.viewCtrl.dismiss();
+  }
+
+  hello() {
+    console.log('hello');
+    this.canvas.width = this.video.nativeElement.videoWidth;
+  this.canvas.height = this.video.nativeElement.videoHeight;
+  this.canvas.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
+  let base64Image = this.canvas.toDataURL('data:image/jpeg;base64,');
+  this.img.nativeElement.src = base64Image;
+  console.log(base64Image);
+  this._image.image.fileName = base64Image;
   }
 
 }
