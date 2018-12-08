@@ -146,4 +146,10 @@ export class EditPage {
     this.editFieldsDisplay = false;
   }
 
+  reverseCamera() {
+    if(this.constraints.video.facingMode === "user") {this.constraints.video.facingMode = "environment"}
+    else {this.constraints.video.facingMode = "user"}
+    this.startUpVideo();
+
+  }
 }
