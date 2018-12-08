@@ -1,8 +1,17 @@
 page-home {
-    text-align: center
+    text-align: center;
+
+    .image {
+        width: 70%;
+    }
+
+    @media (min-width: 550px) {
+        .image {
+            width: 20%;
+        }
+    }
+
+    
 }
 
 // This image styling is a temporary fix. Images are captured sideways for some reason
-.image {
-    transform: rotate(90deg);
-}
