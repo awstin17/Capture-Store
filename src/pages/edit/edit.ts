@@ -23,7 +23,7 @@ export class EditPage {
   screenshotDisplay: any;
   videoDisplay: any = true;
   editFieldsDisplay: any;
-  constraints: any = { audio: false, video: { facingMode: "user"} };
+  constraints: any = { audio: false, video: true };
 
   screenshotButton: any = document.querySelector('#screenshot-button');
   // img: any = document.querySelector('#imageimage');
