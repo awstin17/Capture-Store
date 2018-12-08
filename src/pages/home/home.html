@@ -11,7 +11,7 @@
     <!-- This ngfor displays all images in a user's image array according to subtitle, buttons, image, description
     the let i = index helps us for button functionality where we want to edit or delete based on image place in array -->
 
-    <ion-grid *ngFor="let image of _image.images; let i = index">
+    <ion-grid *ngFor="let image of _image.images; let i = index" style="border-bottom: 1px solid black">
       <ion-row>
         <ion-col>
           <p> {{image.subtitle}} </p>
@@ -20,15 +20,13 @@
           <button ion-button (click)="edit(image.appUserId, image.id, i)">Edit</button>
         </ion-col>
       </ion-row>
-      <br>
-      <br>
+
       <ion-row>
         <ion-col>
           <img style="transform: rotate(0deg)" class="image" [src]="image.fileName">
         </ion-col>
       </ion-row>
-      <br>
-      <br>
+      
       <ion-row>
         <ion-col>
           <p> {{image.description}} </p>

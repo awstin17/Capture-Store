@@ -12,6 +12,12 @@ page-edit {
         margin: auto;
     }
 
+    @media (min-width: 550px) {
+        .previewandcapture {
+            width: 45%;
+        }
+    }
+
     #previewCaptureContainer {
         display: flex; 
         align-items: flex-end;
