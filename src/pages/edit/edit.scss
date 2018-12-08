@@ -12,8 +12,14 @@ page-edit {
         margin: auto;
     }
 
-    .previewCaptureContainer {
+    #previewCaptureContainer {
         display: flex; 
         align-items: flex-end;
+        justify-content: center;
+        
+    }
+
+    .icons {
+        font-size: 60px;
     }
 }
