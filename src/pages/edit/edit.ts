@@ -95,14 +95,16 @@ export class EditPage {
   }
 
   hideVideoandButtons() {
-    // this.video.nativeElement.style.display = "none";
+    this.video.nativeElement.style.display = "none";
     this.videoDisplay = false;
+    
     // this.img.nativeElement.style.display = "none";
     // this._image.show = 'home';
   }
 
   showVideoandButtons() {
     this.videoDisplay = true;
+    this.video.nativeElement.style.display = 'block';
   }
 
   hideScreenshot() {
@@ -134,7 +136,7 @@ export class EditPage {
   takeAnother() {
     this.showVideoandButtons();
     this.hideScreenshot();
-    this.startUpVideo();
+    // document.querySelector('video').play();
   }
 
   showEditFields() {

@@ -17,8 +17,8 @@
   <ion-grid *ngIf="_image.show === 'camera'">
     <ion-row>
       <ion-col id="previewCaptureContainer" col-12>
-        <video class="previewandcapture" *ngIf="videoDisplay === true" #video autoplay></video>
-        <img class="previewandcapture" #screenshotimage alt="" style="display: none;">
+        <video class="previewandcapture" #video autoplay></video>
+        <img  #screenshotimage alt="" style="display: none; max-height: 350px;">
       </ion-col>
     </ion-row>
 
