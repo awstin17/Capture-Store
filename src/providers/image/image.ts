@@ -13,10 +13,11 @@ export class ImageProvider {
 
   // id: any = '';
   // token: any = '';
-  // show: any;
+  show: any;
   // photoTaken: boolean;
   // editModal: any;
   // subtitle: any = '';
+
 
   constructor(public http: HttpClient) {}
 
