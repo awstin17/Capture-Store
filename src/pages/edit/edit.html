@@ -7,6 +7,11 @@
 <ion-header>
 
   <ion-navbar>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="viewCtrl.dismiss()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
     <ion-title text-center>Camera/Edit</ion-title>
   </ion-navbar>
 
@@ -18,7 +23,7 @@
     <ion-row>
       <ion-col id="previewCaptureContainer" col-12>
         <video class="previewandcapture" #video autoplay playsinline></video>
-        <img  #screenshotimage alt="" style="display: none; max-height: 350px;">
+        <img  #screenshotimage alt="" style="display: none; max-height: 320px;">
       </ion-col>
     </ion-row>
 
