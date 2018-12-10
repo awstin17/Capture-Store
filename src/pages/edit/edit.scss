@@ -14,13 +14,7 @@ page-edit {
         max-height: 320px;
     }
 
-    // @media (min-width: 550px) {
-    //     .previewandcapture {
-    //         width: 45%;
-    //     }
-    // }
-
-    #previewCaptureContainer {
+    #flexboxContainer {
         display: flex; 
         align-items: flex-end;
         justify-content: center;

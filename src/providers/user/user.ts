@@ -26,4 +26,7 @@ export class UserProvider {
     return this.http.post("https://capture-store-backend.herokuapp.com/api/appUsers/login", this.credentials);
   }
 
+  logout() {
+    return this.http.post("https://capture-store-backend.herokuapp.com/api/appUsers/logout?access_token=" + window.sessionStorage.getItem('token'), window.sessionStorage.getItem('token'));
+  }
 }

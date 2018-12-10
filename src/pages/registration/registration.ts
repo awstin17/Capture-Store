@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
-// import { LoginPage } from '../login/login';
-
 /**
  * Generated class for the RegistrationPage page.
  *

@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-      <ion-buttons left>
-          <button ion-button icon-only (click)="viewCtrl.dismiss()">
-              <ion-icon name="arrow-back"></ion-icon>
-          </button>
-      </ion-buttons>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title text-center>Camera/Edit</ion-title>
   </ion-navbar>
 
@@ -21,19 +21,19 @@
 <ion-content padding>
   <ion-grid *ngIf="_image.show === 'camera'">
     <ion-row>
-      <ion-col id="previewCaptureContainer" col-12>
+      <ion-col id="flexboxContainer" col-12>
         <video class="previewandcapture" #video autoplay playsinline></video>
-        <img  #screenshotimage alt="" style="display: none; max-height: 320px;">
+        <img #screenshotimage alt="" style="display: none; max-height: 320px;">
       </ion-col>
     </ion-row>
 
     <ion-row class="button-bar" text-center *ngIf="videoDisplay === true">
       <ion-col col-6>
-        <ion-icon class="icons"  id="screenshot-button" (click)="takeScreenshot()" name="aperture"></ion-icon>
+        <ion-icon class="icons" id="screenshot-button" (click)="takeScreenshot()" name="aperture"></ion-icon>
       </ion-col>
       <ion-col col-6>
-          <ion-icon class="icons" name="reverse-camera" (click)="reverseCamera()"></ion-icon>
-        </ion-col>
+        <ion-icon class="icons" name="reverse-camera" (click)="reverseCamera()"></ion-icon>
+      </ion-col>
     </ion-row>
 
     <ion-row class="button-bar" text-center *ngIf="screenshotDisplay === true">
@@ -45,19 +45,46 @@
       </ion-col>
     </ion-row>
 
-    <div *ngIf="editFieldsDisplay">
-      <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
-      <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
-      <button block ion-button (click)="saveToDatabase()" [disabled]="videoDisplay">Save</button>
-    </div>
+    <ion-row id="flexboxContainer" *ngIf="editFieldsDisplay">
+      <ion-col col-10>
+        <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row id="flexboxContainer" *ngIf="editFieldsDisplay">
+      <ion-col col-10>
+        <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row id="flexboxContainer" *ngIf="editFieldsDisplay">
+      <ion-col col-10>
+        <button block ion-button (click)="saveToDatabase()" [disabled]="videoDisplay">Save</button>
+      </ion-col>
+    </ion-row>
 
   </ion-grid>
 
-  <div *ngIf="_image.show === 'home'">
-    <img id="edit" [src]="_image.images[index].fileName" *ngIf="_image.show === 'home'">
-    <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
-    <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
-    <button block ion-button *ngIf="_image.show === 'home'" (click)="saveFromEditing()">Edit</button>
-  </div>
+  <ion-grid *ngIf="_image.show === 'home'">
+    <ion-row>
+      <ion-col col-12>
+        <img id="edit" [src]="_image.images[index].fileName" *ngIf="_image.show === 'home'">
+      </ion-col>
+    </ion-row>
+    <ion-row id="flexboxContainer">
+      <ion-col col-10>
+        <ion-input [(ngModel)]="_image.image.subtitle" type="text" placeholder="Subtitle"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row id="flexboxContainer">
+      <ion-col col-10>
+        <ion-input [(ngModel)]="_image.image.description" type="text" placeholder="Description"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row id="flexboxContainer">
+      <ion-col col-10>
+        <button block ion-button *ngIf="_image.show === 'home'" (click)="saveFromEditing()">Edit</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
 </ion-content>

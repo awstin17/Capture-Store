@@ -11,17 +11,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ImageProvider {
 
-  id: any = '';
-  token: any = '';
-  show: any;
-  photoTaken: boolean;
-  editModal: any;
-  subtitle: any = '';
+  // id: any = '';
+  // token: any = '';
+  // show: any;
+  // photoTaken: boolean;
+  // editModal: any;
+  // subtitle: any = '';
 
-
-  constructor(public http: HttpClient) {
-    console.log('Hello ImageProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
 
     image: any = {
       fileName: '',
