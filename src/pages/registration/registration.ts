@@ -24,11 +24,12 @@ export class RegistrationPage {
     .subscribe(
      (res: any) => { 
      alert("successful registration!");
+     console.log('this is running');
      this.dismissModal();
       // this._user.userToken = window.sessionStorage.getItem('token');
       // this._user.userId = window.sessionStorage.getItem('userId');
      },
-     (error) => console.log(error.message)
+     (error) => console.log(error.message, "error")
       )
   }
 

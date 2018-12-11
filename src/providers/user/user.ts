@@ -19,6 +19,7 @@ export class UserProvider {
   }
 
   register() {
+    console.log(this.user);
     return this.http.post("https://capture-store-backend.herokuapp.com/api/appUsers", this.user)
   }
 
