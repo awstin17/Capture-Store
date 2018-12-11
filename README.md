@@ -62,4 +62,3 @@ There are two important branches this project has:
 * [Angular](https://angular.io/)
 * [MongoDB](https://www.mongodb.com/)
 * [Loopback](http://loopback.io/)
-* [Ng2-Charts](https://valor-software.com/ng2-charts/)
