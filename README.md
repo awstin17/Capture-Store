@@ -49,7 +49,11 @@ There are two important branches this project has:
 
 ### So, what's the difference?
 
-Master is meant to run like a native application would on a phone, but as of right now, I cannot demo as it only works through the [ionic devApp](https://ionicframework.com/docs/appflow/devapp/). Snapz-demo exists so any device can open a browser and use the app like it is supposed to be used. It's the branch that is deployed to the demo site [here](https://snapz-demo.firebaseapp.com/).
+- Master is meant to run like a native application would on a phone, but as of right now, I cannot demo as it only works through the [ionic devApp](https://ionicframework.com/docs/appflow/devapp/). 
+
+- Snapz-demo exists so any device can open a browser and use the app like it is supposed to be used. It's the branch that is deployed to the demo site [here](https://snapz-demo.firebaseapp.com/).
+
+**Snapz-demo is by far the branch you will want to serve and view. It has the most updated stylings and functionality that the master branch currently does not have.**
 
 ## Built With
 
