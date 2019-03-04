@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 
 import { UserProvider } from  '../../providers/user/user';
 import { TabsPage } from '../tabs/tabs';
 import { ModalController } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
+import { PopupPage } from '../popup/popup';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,16 @@ import { RegistrationPage } from '../registration/registration';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private _user: UserProvider) {
+  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public navParams: NavParams, public modalCtrl: ModalController, private _user: UserProvider) {
+  }
+
+  ionViewDidLoad() {
+    this.presentPopup();
+  }
+
+  presentPopup() {
+    const popup = this.popoverCtrl.create(PopupPage);
+    popup.present();
   }
 
   login() {

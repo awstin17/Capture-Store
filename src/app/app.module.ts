@@ -15,6 +15,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { RegistrationPageModule } from '../pages/registration/registration.module';
 // import { EditPage } from '../pages/edit/edit';
 import { EditPageModule } from '../pages/edit/edit.module';
+import { PopupPageModule } from '../pages/popup/popup.module';
 
 // import { CameraComponent } from '../components/camera/camera';
 import { ComponentsModule} from '../components/components.module';
@@ -50,6 +51,7 @@ import { IonicStorageModule } from '@ionic/storage';
     EditPageModule,
     LoginPageModule,
     RegistrationPageModule,
+    PopupPageModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       scrollAssist: false, 
