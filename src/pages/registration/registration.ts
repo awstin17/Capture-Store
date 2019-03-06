@@ -30,11 +30,7 @@ export class RegistrationPage {
           sessionStorage.setItem('userId', res.userId);
           this.navCtrl.setRoot(TabsPage);
         },
-        (error) => console.log(error.message, "error")
+        (error) => {console.log(error.message, "error"); alert('An error occurred. Email may already have an account')}
       )
-  }
-
-  dismissModal() {
-    this.viewCtrl.dismiss();
   }
 }

@@ -18,6 +18,7 @@ export class HomePage {
         this._image.getImages()
       .subscribe((res) => {
         this._image.images = res;
+        this._image.images.reverse();
       },
       (err) => console.log(err)
 
