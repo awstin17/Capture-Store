@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
+import { TabsPage } from '../tabs/tabs';
+
 /**
  * Generated class for the RegistrationPage page.
  *
@@ -17,19 +19,18 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _user: UserProvider, public viewCtrl : ViewController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _user: UserProvider, public viewCtrl: ViewController) { }
 
   register() {
     this._user.register()
-    .subscribe(
-     (res: any) => { 
-     alert("successful registration!");
-     console.log('this is running');
-     this.dismissModal();
-      // this._user.userToken = window.sessionStorage.getItem('token');
-      // this._user.userId = window.sessionStorage.getItem('userId');
-     },
-     (error) => console.log(error.message, "error")
+      .subscribe(
+        (res: any) => {
+          alert("successful registration!");
+          sessionStorage.setItem('token', res.token);
+          sessionStorage.setItem('userId', res.userId);
+          this.navCtrl.setRoot(TabsPage);
+        },
+        (error) => console.log(error.message, "error")
       )
   }
 
