@@ -21,7 +21,6 @@ export class TabsPage {
     //it needs to be run on tabs page because the tabs page is in the primary nav stack
     this.events.subscribe('user:logout', () => {
       this.navCtrl.setRoot(LoginPage);
-      console.log('This is running')
     })
   }
 
@@ -30,6 +29,5 @@ export class TabsPage {
   //This created an issue where the popup message on login page loaded more than once and stacked on top of each other
   ionViewDidLeave() {
     this.events.unsubscribe('user:logout')
-    console.log('helloooo')
   }
 }

@@ -23,7 +23,7 @@ export class EditPage {
   screenshotDisplay: any;
   videoDisplay: any = true;
   editFieldsDisplay: any;
-  constraints: any = { audio: false, video: { facingMode: "environment"} };
+  constraints: any = { audio: false, video: { facingMode: "environment" } };
 
   screenshotButton: any = document.querySelector('#screenshot-button');
   // img: any = document.querySelector('#imageimage');
@@ -32,8 +32,9 @@ export class EditPage {
   @ViewChild('video') video;
 
   ionViewDidEnter() {
-    this.startUpVideo();
-    // this.hideScreenshot();
+    if (this._image.show === 'camera') {
+      this.startUpVideo();
+    }
   }
 
   saveToDatabase() {
@@ -44,7 +45,7 @@ export class EditPage {
         this.dismissModal();
         // this._image.images.push(this._image.image);
         let data = res;
-        this._image.images.push(data);
+        this._image.images.unshift(data);
 
         this._image.image.fileName = '';
         this._image.image.subtitle = '';
@@ -91,13 +92,13 @@ export class EditPage {
           document.querySelector('video').play();
         };
       })
-      .catch(function (err) { console.log(err.name + ": " + err.message); });
+      .catch(function (err) { console.log(err.name + ": " + err.message); alert("It doesn't appear that we can see the camera preview on screen. Your browser may be blocking access. Try changing your browser's permission settings!") });
   }
 
   hideVideoandButtons() {
     this.video.nativeElement.style.display = "none";
     this.videoDisplay = false;
-    
+
     // this.img.nativeElement.style.display = "none";
     // this._image.show = 'home';
   }
@@ -149,8 +150,8 @@ export class EditPage {
   }
 
   reverseCamera() {
-    if(this.constraints.video.facingMode === "user") {this.constraints.video.facingMode = "environment"}
-    else {this.constraints.video.facingMode = "user"}
+    if (this.constraints.video.facingMode === "user") { this.constraints.video.facingMode = "environment" }
+    else { this.constraints.video.facingMode = "user" }
     this.startUpVideo();
 
   }
