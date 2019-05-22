@@ -2,7 +2,7 @@
 Snapz is a typescript based hybrid mobile app that allows you to take and save pictures to your profile with title and description. The backend API uses MongoDB as a data source for a loopback api server. The corresponding backend server can be found at: 
 
 ```
-https://github.com/awstin17/capture-store-backend
+https://github.com/awstin17/Snapz-backend
 ```
 
 Getting started
